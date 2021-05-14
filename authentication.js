@@ -8,8 +8,8 @@ const extractCookie = (header) => {
   return header.split(";")[0];
 };
 
-const getSessionKey = (z, bundle) => {
-  const promise = z.request({
+const getSessionKey = async (z, bundle) => {
+  const response = await z.request({
     method: "POST",
     url: "https://myaussie-auth.aussiebroadband.com.au/login",
     body: {
@@ -18,21 +18,19 @@ const getSessionKey = (z, bundle) => {
     },
   });
 
-  return promise.then((response) => {
-    if (response.status === 422) {
-      throw new Error("The username/password you supplied is invalid");
-    }
+  if (response.status === 422) {
+    throw new Error("The username/password you supplied is invalid");
+  }
 
-    const cookie = response.getHeader("Set-Cookie");
+  const cookie = response.getHeader("Set-Cookie");
 
-    if (!cookie) {
-      throw new Error("No cookie returned in response headers");
-    }
+  if (!cookie) {
+    throw new Error("No cookie returned in response headers");
+  }
 
-    return {
-      sessionKey: extractCookie(cookie),
-    };
-  });
+  return {
+    sessionKey: extractCookie(cookie),
+  };
 };
 
 const includeSessionKeyHeader = (request, z, bundle) => {
