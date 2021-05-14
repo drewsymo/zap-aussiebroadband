@@ -9,4 +9,8 @@
 
 ## Example
 
+#### Send Receipts to Splitwise
 ![Aussie Broadband Zapier Example with Splitwise](screenshots/splitwise.png?raw=true)
+
+#### Receipts
+![Aussie Broadband Zapier Receipts](screenshots/transaction-receipt.png?raw=true)
