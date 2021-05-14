@@ -1,0 +1,17 @@
+{
+  "name": "Aussie Broadband",
+  "version": "1.0.1",
+  "description": "Manage your Aussie Broadband portal with Zapier",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "zapier-platform-core": "11.0.0"
+  },
+  "devDependencies": {
+    "prettier": "2.3.0"
+  }
+}
